@@ -44,7 +44,7 @@
 
 		qcom,chipid = <0x04010800>;
 
-		qcom,initial-pwrlevel = <4>;
+		qcom,initial-pwrlevel = <5>;
 
 		qcom,idle-timeout = <8>; //<HZ/12>
 		qcom,strtstp-sleepwake;
@@ -103,57 +103,65 @@
 			#size-cells = <0>;
 
 			compatible = "qcom,gpu-pwrlevels";
-
+			
 			qcom,gpu-pwrlevel@0 {
 				reg = <0>;
+				qcom,gpu-freq = <700000000>;
+				qcom,bus-freq = <7>;
+				qcom,bus-min = <6>;
+				qcom,bus-max = <7>;
+			};
+
+			qcom,gpu-pwrlevel@1 {
+				reg = <1>;
 				qcom,gpu-freq = <600000000>;
 				qcom,bus-freq = <7>;
 				qcom,bus-min = <6>;
 				qcom,bus-max = <7>;
 			};
 
-                        qcom,gpu-pwrlevel@1 {
-                                reg = <1>;
+                        qcom,gpu-pwrlevel@2 {
+                                reg = <2>;
                                 qcom,gpu-freq = <490000000>;
                                 qcom,bus-freq = <6>;
 				qcom,bus-min = <5>;
 				qcom,bus-max = <7>;
                         };
 
-			qcom,gpu-pwrlevel@2 {
-				reg = <2>;
+			qcom,gpu-pwrlevel@3 {
+				reg = <3>;
 				qcom,gpu-freq = <450000000>;
 				qcom,bus-freq = <5>;
 				qcom,bus-min = <4>;
 				qcom,bus-max = <6>;
 			};
 
-                        qcom,gpu-pwrlevel@3 {
-                                reg = <3>;
+                        qcom,gpu-pwrlevel@4 {
+                                reg = <4>;
                                 qcom,gpu-freq = <367000000>;
                                 qcom,bus-freq = <4>;
 				qcom,bus-min = <3>;
 				qcom,bus-max = <5>;
                         };
 
-			qcom,gpu-pwrlevel@4 {
-				reg = <4>;
+			qcom,gpu-pwrlevel@5 {
+				reg = <5>;
 				qcom,gpu-freq = <300000000>;
 				qcom,bus-freq = <3>;
 				qcom,bus-min = <2>;
 				qcom,bus-max = <4>;
 			};
 
-			qcom,gpu-pwrlevel@5 {
-				reg = <5>;
+			qcom,gpu-pwrlevel@6 {
+				reg = <6>;
 				qcom,gpu-freq = <180000000>;
 				qcom,bus-freq = <2>;
 				qcom,bus-min = <1>;
 				qcom,bus-max = <3>;
 			};
 
-			qcom,gpu-pwrlevel@6 {
-				reg = <6>;
+			qcom,gpu-pwrlevel@7 {
+				reg = <7>;
 				qcom,gpu-freq = <27000000>;
 				qcom,bus-freq = <0>;
 				qcom,bus-min = <0>;
@@ -169,9 +177,10 @@
                  */
                 qcom,ocmem-bus-client {
                         qcom,msm-bus,name = "gpu-ocmem";
-                        qcom,msm-bus,num-cases = <7>;
+                        qcom,msm-bus,num-cases = <8>;
                         qcom,msm-bus,num-paths = <1>;
                         qcom,msm-bus,vectors-KBps =
+                        	<89 662 0 9600000>,     /* gpu=700 */
 				<89 662 0 9600000>,     /* gpu=600 */
 				<89 662 0 7840000>,     /* gpu=490 */
 				<89 662 0 7200000>,     /* gpu=450 */
