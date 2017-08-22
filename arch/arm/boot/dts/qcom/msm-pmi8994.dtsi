@@ -27,7 +27,7 @@
 			reg = <0x100 0x100>;
 		};
 
-		qcom,power-on@800 {
+		pmi8994_pon: qcom,power-on@800 {
 			compatible = "qcom,qpnp-power-on";
 			reg = <0x800 0x100>;
 			qcom,secondary-pon-reset;
@@ -664,7 +664,7 @@
 						"torch0_trigger";
 				qcom,max-current = <200>;
 				qcom,id = <0>;
-				qcom,current = <120>;
+				qcom,current = <190>;
 				reg0 {
 					regulator-name =
 						"pmi8994_boostbypass";
@@ -682,7 +682,7 @@
 						"torch1_trigger";
 				qcom,max-current = <200>;
 				qcom,id = <1>;
-				qcom,current = <120>;
+				qcom,current = <190>;
 				reg0 {
 					regulator-name =
 						"pmi8994_boostbypass";
